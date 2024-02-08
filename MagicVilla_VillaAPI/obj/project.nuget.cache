@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rd4Hg7XIORqbDbJn/f7QtTM+OGqq+/QOAWkMZUQwe513dYLYxwRPMxcwVLqF+TxWFo7AwaIVVZo08enCP7S6rw==",
+  "dgSpecHash": "iThrXvU7iy/t9oCxVGMq/QJR0njXZeLk+RktHwea1ICzDriAMs6sI912GCDbZ9d4XT6Jw2MQNbOnDLUsU4BClQ==",
   "success": true,
-  "projectFilePath": "D:\\asp\\MagicVilla\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\magic-villa\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

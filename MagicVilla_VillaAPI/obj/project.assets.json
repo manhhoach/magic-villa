@@ -4067,11 +4067,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\asp\\MagicVilla\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\magic-villa\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
       "projectName": "MagicVilla_VillaAPI",
-      "projectPath": "D:\\asp\\MagicVilla\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\magic-villa\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\asp\\MagicVilla\\MagicVilla_VillaAPI\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\magic-villa\\MagicVilla_VillaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4170,7 +4170,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
