@@ -9,6 +9,7 @@ namespace MagicVilla_VillaAPI.Models.Villa
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
         public required string Name { get; set; }
 
         public string Details { get; set; }

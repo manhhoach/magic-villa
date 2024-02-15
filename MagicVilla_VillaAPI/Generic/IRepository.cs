@@ -10,8 +10,8 @@ namespace MagicVilla_VillaAPI.Generic
 
         Task Save();
 
-        Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null);
+        Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null );
 
-        Task<T> GetOne(Expression<Func<T, bool>>? filter = null, bool tracked = true);
+        Task<T> GetOne(Expression<Func<T, bool>>? filter = null, bool tracked = true, string? includeProperties = null);
     }
 }

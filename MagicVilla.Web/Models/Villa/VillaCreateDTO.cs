@@ -12,7 +12,7 @@ namespace MagicVilla.Web.Models.Villa
 
         public int Sqft { get; set; }
 
-        public string Details { get; set; }
+        public string? Details { get; set; }
 
         [Required]
         public double Rate { get; set; }

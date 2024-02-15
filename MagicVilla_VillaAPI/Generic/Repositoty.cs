@@ -11,6 +11,7 @@ namespace MagicVilla_VillaAPI.Generic
         public Repository(ApplicationDbContext db)
         {
             _db = db;
+          //  _db.VillaNumbers.Include(u => u.Villa).ToList();
             _dbSet = _db.Set<T>();
         }
         public async Task Create(T entity)
@@ -19,18 +20,25 @@ namespace MagicVilla_VillaAPI.Generic
             await Save();
         }
 
-        public async Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null)
+        public async Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = _dbSet;
             if (filter != null)
             {
                 query = query.Where(filter);
             }
+            if (includeProperties != null)
+            {
+                foreach (var property in includeProperties.Split(','))
+                {
+                    query = query.Include(property);
+                }
+            }
             return await query.ToListAsync();
 
         }
 
-        public async Task<T> GetOne(Expression<Func<T, bool>>? filter, bool tracked)
+        public async Task<T> GetOne(Expression<Func<T, bool>>? filter, bool tracked, string? includeProperties = null)
         {
             IQueryable<T> query = _dbSet;
             if (filter != null)
@@ -40,6 +48,13 @@ namespace MagicVilla_VillaAPI.Generic
             if (!tracked)
             {
                 query = query.AsNoTracking();
+            }
+            if (includeProperties != null)
+            {
+                foreach(var property in includeProperties.Split(','))
+                {
+                    query = query.Include(property);
+                }
             }
             return await query.FirstOrDefaultAsync();
         }
