@@ -16,57 +16,66 @@ namespace MagicVilla_VillaAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VillaModel>().HasData(
-                new VillaModel()
+                new VillaModel
                 {
                     Id = 1,
-                    Amenity = "vip",
-                    Details = "no details",
-                    ImageUrl = "no.jpg",
-                    Name = "villa 1",
-                    Occupancy = 10,
-                    Rate = 10,
-                    Sqft = 10,
-                    CreatedDate = DateTime.Now
-
+                    Name = "Royal Villa",
+                    Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                    ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa2.jpg",
+                    Occupancy = 4,
+                    Rate = 200,
+                    Sqft = 550,
+                    Amenity = "",
+                    CreatedDate = new DateTime(2000, 01, 01)
                 },
-                new VillaModel()
-                {
-                    Id = 2,
-                    Amenity = "vip",
-                    Details = "no details",
-                    ImageUrl = "no.jpg",
-                    Name = "villa 1",
-                    Occupancy = 10,
-                    Rate = 10,
-                    Sqft = 10,
-                    CreatedDate = DateTime.Now
-                },
-                 new VillaModel()
-                 {
-                     Id = 3,
-                     Amenity = "vip",
-                     Details = "no details",
-                     ImageUrl = "no.jpg",
-                     Name = "villa 1",
-                     Occupancy = 10,
-                     Rate = 10,
-                     Sqft = 10,
-                     CreatedDate = DateTime.Now
-                 },
-                new VillaModel()
-                {
-                    Id = 4,
-                    Amenity = "vip",
-                    Details = "no details",
-                    ImageUrl = "no.jpg",
-                    Name = "villa 1",
-                    Occupancy = 10,
-                    Rate = 10,
-                    Sqft = 10,
-                    CreatedDate = DateTime.Now
-
-                }
-             );
+              new VillaModel
+              {
+                  Id = 2,
+                  Name = "Premium Pool Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa3.jpg",
+                  Occupancy = 4,
+                  Rate = 300,
+                  Sqft = 550,
+                  Amenity = "",
+                  CreatedDate = new DateTime(2000, 01, 01)
+              },
+              new VillaModel
+              {
+                  Id = 3,
+                  Name = "Luxury Pool Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa4.jpg",
+                  Occupancy = 4,
+                  Rate = 400,
+                  Sqft = 750,
+                  Amenity = "",
+                  CreatedDate = new DateTime(2000, 01, 01)
+              },
+              new VillaModel
+              {
+                  Id = 4,
+                  Name = "Diamond Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa5.jpg",
+                  Occupancy = 4,
+                  Rate = 550,
+                  Sqft = 900,
+                  Amenity = "",
+                  CreatedDate = new DateTime(2000, 01, 01)
+              },
+              new VillaModel
+              {
+                  Id = 5,
+                  Name = "Diamond Pool Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa1.jpg",
+                  Occupancy = 4,
+                  Rate = 600,
+                  Sqft = 1100,
+                  Amenity = "",
+                  CreatedDate = new DateTime(2000, 01, 01)
+              });
         }
     }
 }

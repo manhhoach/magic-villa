@@ -4,6 +4,7 @@ using MagicVilla.Web.Models.Villa;
 using MagicVilla.Web.Models.VillaNumber;
 using MagicVilla.Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 
 namespace MagicVilla.Web.Controllers
@@ -12,10 +13,12 @@ namespace MagicVilla.Web.Controllers
     {
         private readonly IVillaNumberService _villaNumberService;
         private readonly IMapper _mapper;
-        public VillaNumberController(IVillaNumberService villaNumberService, IMapper mapper)
+        private readonly IVillaService _villaService;
+        public VillaNumberController(IVillaNumberService villaNumberService, IMapper mapper, IVillaService villaService)
         {
             _villaNumberService = villaNumberService;
             _mapper = mapper;
+            _villaService = villaService;   
         }
 
         public async Task<IActionResult> Index()
@@ -31,6 +34,13 @@ namespace MagicVilla.Web.Controllers
 
         public async Task<IActionResult> CreateVillaNumber()
         {
+            var res = await _villaService.GetAllAsync<APIResponse>();
+            var villa = JsonConvert.DeserializeObject<List<VillaDTO>>(res.Result.ToString());
+            ViewBag.ListVilla = villa.Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+            }).ToList();
             return View();
         }
 
