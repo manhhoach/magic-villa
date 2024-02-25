@@ -27,9 +27,7 @@ namespace MagicVilla.Web.Services
                 m.RequestUri = new Uri(apiRequest.Url);
                 if (apiRequest.Data != null)
                 {
-
                     m.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data), Encoding.UTF8, "application/json");
-
                 }
                 switch (apiRequest.APIType)
                 {
@@ -47,6 +45,12 @@ namespace MagicVilla.Web.Services
                         break;
                 }
                 HttpResponseMessage apiResponse = null;
+
+                if(!string.IsNullOrEmpty(apiRequest.Token))
+                {
+                    client.DefaultRequestHeaders.Authorization=new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiRequest.Token);
+                }
+
                 apiResponse = await client.SendAsync(m);
                 var apiContent = await apiResponse.Content.ReadAsStringAsync();
                 var res = JsonConvert.DeserializeObject<T>(apiContent);

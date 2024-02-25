@@ -5,6 +5,7 @@ using MagicVilla_VillaAPI.Repository.User;
 using MagicVilla_VillaAPI.Repository.Villa;
 using MagicVilla_VillaAPI.Repository.VillaNumber;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -71,6 +72,17 @@ builder.Services.AddAuthentication(x =>
         ValidateAudience = false,
     };
 });
+builder.Services.AddApiVersioning(opt =>
+{
+    opt.AssumeDefaultVersionWhenUnspecified = true;
+    opt.DefaultApiVersion = new ApiVersion(1, 0);
+});
+
+builder.Services.AddVersionedApiExplorer(opt =>
+{
+    opt.GroupNameFormat = "'v'VVV";
+});
+
 
 var app = builder.Build();
 

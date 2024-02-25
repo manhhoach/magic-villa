@@ -8,12 +8,12 @@ namespace MagicVilla.Web.Services
     public class AuthService : BaseService, IAuthService
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private string villaUrl;
-        private string route = "/api/user/";
+        private string URL_AUTH = "/api/user/";
+        private string URL_API;
         public AuthService(IHttpClientFactory httpClientFactory, IConfiguration config) : base(httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
-            villaUrl = config.GetValue<string>("ServiceUrls:VillaAPI");
+            URL_API = config.GetValue<string>("ServiceUrls:VillaAPI");
         }
 
         public Task<T> LoginAsync<T>(LoginDto loginDto)
@@ -22,7 +22,7 @@ namespace MagicVilla.Web.Services
             {
                 APIType = SD.APIType.POST,
                 Data = loginDto,
-                Url = villaUrl + "login"
+                Url = URL_API +URL_AUTH+ "login"
             });
         }
 
@@ -32,7 +32,7 @@ namespace MagicVilla.Web.Services
             {
                 APIType = SD.APIType.POST,
                 Data = registerDto,
-                Url = villaUrl + "register"
+                Url = URL_API + URL_AUTH + "register"
             });
         }
     }

@@ -7,6 +7,7 @@ namespace MagicVilla_VillaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiVersionNeutral]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
@@ -37,11 +38,11 @@ namespace MagicVilla_VillaAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-            bool isUnique =  _userRepository.IsUniqueUser(registerDto.UserName);
-            if(isUnique)
+            bool isUnique = _userRepository.IsUniqueUser(registerDto.UserName);
+            if (isUnique)
             {
                 var user = await _userRepository.Register(registerDto);
-                if(user != null)
+                if (user != null)
                 {
                     _res.IsSuccess = true;
                     _res.StatusCode = System.Net.HttpStatusCode.Created;
