@@ -35,14 +35,31 @@ namespace MagicVilla_VillaAPI.Controllers.v1
 
 
         [HttpGet]
-        public async Task<ActionResult<APIResponse>> GetVillas()
+       // [ResponseCache(Duration = 30)]
+        public async Task<ActionResult<APIResponse>> GetVillas([FromQuery(Name ="filterOccupancy")] int? occupancy, [FromQuery] string? name, int pageSize=0, int pageIndex=1)
         {
             try
             {
-                IEnumerable<VillaModel> villaList = await _villaRepository.GetAll();
+
+                IEnumerable<VillaModel> villaList;
+                if(occupancy > 0)
+                {
+                    villaList = await _villaRepository.GetAll(u => u.Occupancy == occupancy, pageSize: pageSize, pageIndex: pageIndex);
+       
+                }
+                else
+                {
+                    villaList = await _villaRepository.GetAll(pageSize: pageSize, pageIndex: pageIndex);
+                }
+                if (!string.IsNullOrEmpty(name))
+                {
+                    villaList = villaList.Where(x=>x.Name.ToLower().Contains(name.ToLower()));  
+                }
+                Pagination pg = new Pagination() { PageIndex = pageIndex, PageSize = pageSize };
+                Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(pg));
                 _response.Result = _mapper.Map<List<VillaDTO>>(villaList);
                 _response.StatusCode = HttpStatusCode.OK;
-                return Ok(_response);
+                return Ok(_response); 
             }
             catch (Exception ex)
             {
@@ -56,7 +73,8 @@ namespace MagicVilla_VillaAPI.Controllers.v1
 
 
         [HttpGet("{id}", Name = "GetVilla")]
-        [Authorize(Roles = "admin")]
+        [ResponseCache(CacheProfileName = "Default30")]
+     //   [Authorize(Roles = "admin")]
         public async Task<ActionResult<APIResponse>> GetVilla(int id)
         {
             try

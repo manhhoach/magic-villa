@@ -19,7 +19,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(option =>
 {
-    // option.ReturnHttpNotAcceptable = true; // check media type in request
+    option.CacheProfiles.Add("Default30", new CacheProfile()
+    {
+        Duration = 30,
+        Location = ResponseCacheLocation.Client
+    }); 
 }).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -83,6 +87,7 @@ builder.Services.AddVersionedApiExplorer(opt =>
     opt.GroupNameFormat = "'v'VVV";
 });
 
+builder.Services.AddResponseCaching();
 
 var app = builder.Build();
 

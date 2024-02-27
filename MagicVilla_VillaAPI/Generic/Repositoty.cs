@@ -20,7 +20,7 @@ namespace MagicVilla_VillaAPI.Generic
             await Save();
         }
 
-        public async Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
+        public async Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null, int pageSize = 0, int pageIndex = 1)
         {
             IQueryable<T> query = _dbSet;
             if (filter != null)
@@ -33,6 +33,12 @@ namespace MagicVilla_VillaAPI.Generic
                 {
                     query = query.Include(property);
                 }
+            }
+            if (pageSize > 0)
+            {
+                if (pageSize > 100)
+                    pageSize = 100;
+                query = query.Skip(pageSize*(pageIndex-1)).Take(pageSize);
             }
             return await query.ToListAsync();
 
