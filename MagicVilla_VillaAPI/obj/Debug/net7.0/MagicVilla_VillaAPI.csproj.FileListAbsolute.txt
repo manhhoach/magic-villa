@@ -182,3 +182,4 @@ C:\Users\Admin\Desktop\magic-villa\MagicVilla_VillaAPI\obj\Debug\net7.0\ref\Magi
 C:\Users\Admin\Desktop\magic-villa\MagicVilla_VillaAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Admin\Desktop\magic-villa\MagicVilla_VillaAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\Admin\Desktop\magic-villa\MagicVilla_VillaAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
+C:\Users\Admin\Desktop\magic-villa\MagicVilla_VillaAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
